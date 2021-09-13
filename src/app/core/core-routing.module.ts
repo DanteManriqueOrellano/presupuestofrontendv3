@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 
 const routes: Routes = [
-  {path:"",component:NavegacionComponent}
+  {path:'',loadChildren:()=>import('./navegacion/navegacion.module').then(m=>m.NavegacionModule)}
 ];
 
 @NgModule({

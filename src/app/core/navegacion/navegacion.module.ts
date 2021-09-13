@@ -9,8 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MenulateralModule } from './menulateral/menulateral.module';
-import { MenusuperiorModule } from './menusuperior/menusuperior.module';
+import {MatSelectModule} from '@angular/material/select';
+import { ModuloinsumoModule } from '../moduloinsumo/moduloinsumo.module';
 
 
 @NgModule({
@@ -21,14 +21,14 @@ import { MenusuperiorModule } from './menusuperior/menusuperior.module';
   imports: [
     CommonModule,
     NavegacionRoutingModule,
+    ModuloinsumoModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MenulateralModule,
-    MenusuperiorModule,
+    MatSelectModule,
     
   ],
   exports:[NavegacionComponent]

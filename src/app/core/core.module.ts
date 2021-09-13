@@ -7,6 +7,7 @@ import { NavegacionModule } from './navegacion/navegacion.module';
 
 
 
+
 @NgModule({
   declarations: [
     ShellComponent,
@@ -16,6 +17,7 @@ import { NavegacionModule } from './navegacion/navegacion.module';
     CommonModule,
     NavegacionModule,
     CoreRoutingModule,
+    
    
   ],
   exports:[ShellComponent]
