@@ -4,7 +4,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { delay } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute,NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 interface Food {
   value: string;
   viewValue: string;
@@ -29,7 +29,16 @@ export class NavegacionComponent  {
     private observer: BreakpointObserver,
     private router:Router,
     private route:ActivatedRoute
-    ) {}
+    ) {
+      this.router.events.subscribe(ev => {
+        if (ev instanceof NavigationStart) {
+          this.loading = true;
+        }
+        if (ev instanceof NavigationEnd || ev instanceof NavigationCancel || ev instanceof NavigationError) {
+          this.loading = false;
+        }
+      });
+    }
 
   ngAfterViewInit() {
     this.observer
@@ -54,6 +63,10 @@ export class NavegacionComponent  {
  goToInsumo(){
    this.router.navigate(['/insumo'])
  }
+
+ loading = false;
+  title = 'angu-res';
+  
 
  
   
