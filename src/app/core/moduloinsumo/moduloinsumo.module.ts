@@ -1,9 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { ModuloinsumoRoutingModule } from './moduloinsumo-routing.module';
 import { InsumoComponent } from './insumo/insumo.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select'
+import {MatButtonModule} from '@angular/material/button';
+import { GraphQLModule } from 'src/app/graphql.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NetworkinterceptorService } from '../shareServices/networkinterceptor.service';
 
 @NgModule({
   declarations: [
@@ -11,8 +20,23 @@ import { InsumoComponent } from './insumo/insumo.component';
   ],
   imports: [
     CommonModule,
-    ModuloinsumoRoutingModule
+    BrowserModule,
+    ModuloinsumoRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    GraphQLModule,
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
-  exports:[InsumoComponent]
+  exports:[InsumoComponent],
+  providers:[
+    { provide: HTTP_INTERCEPTORS, useClass: NetworkinterceptorService, multi: true },
+  ]
 })
 export class ModuloinsumoModule { }

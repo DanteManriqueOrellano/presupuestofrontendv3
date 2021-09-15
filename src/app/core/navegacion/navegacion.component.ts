@@ -1,20 +1,13 @@
-import { Component,OnInit,ViewChild  } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component,ViewChild  } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
 import { delay } from 'rxjs/operators';
 import { ActivatedRoute,NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 interface Food {
   value: string;
   viewValue: string;
 }
-interface IInsumo{
-  insumo:string,
-  precio:number,
-  umedida:string,
-  id:String,
-}
+
 @Component({
   selector: 'app-navegacion',
   templateUrl: './navegacion.component.html',
@@ -54,11 +47,13 @@ export class NavegacionComponent  {
         }
       });
   }
+  /*Reemplazar estos valores con valores reales */
   foods: Food[] = [
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
+  
 
  goToInsumo(){
    this.router.navigate(['/insumo'])

@@ -1,12 +1,51 @@
+<section class="color='red'">
+    INSUMOS
+</section>
+<section>
+    <form [formGroup]="formGroup">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field >
+                        <mat-label>Insumo</mat-label>
+                        <input matInput placeholder="Ex. San Francisco" autocomplete="off" [formControlName]="formControlNames.insumo">
+                    </mat-form-field>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <mat-form-field >
+                        <mat-label>Precio</mat-label>
+                        <input matInput placeholder="Ex. San Francisco" autocomplete="off" [formControlName]="formControlNames.precio">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field >
+                        <mat-label>U. Medida</mat-label>
+                        <mat-select [formControlName]="formControlNames.umedida">
+                            <mat-option value="UND">UND</mat-option>
+                            <mat-option value="PKT">PAQUETE</mat-option>
+                          </mat-select>
+                        
+                    </mat-form-field>
+                </td>
+            </tr>
 
 
+        </table>
+    </form>
+  
+</section>
 
-<div class="wrapper">
-    <div *ngFor="let product of products" class="card">
-        <img src="https://via.placeholder.com/350">
-        <h1>{{product.name}}</h1>
-        <p class="price">${{product.price}}</p>
-        <p>{{product.description}}</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-</div>
+  
+  <button mat-raised-button color="primary" (click)="enviarFormulario()">boton</button>
+  
+  <mat-progress-spinner *ngIf="loading$ | async; else dataLoaded" [mode]="'indeterminate'"></mat-progress-spinner>
+  
+  <ng-template #dataLoaded>
+    <section *ngFor ="let insumo of insumos$ | async">
+        {{insumo.insumo}}
+    </section>
+  </ng-template>
+

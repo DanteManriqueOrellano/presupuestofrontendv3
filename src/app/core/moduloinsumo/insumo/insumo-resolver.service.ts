@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IInsumo, InsumoService } from './insumo.service';
+import { IInsumo } from '../entity/insumos';
+import { InsumoService } from './insumo.service';
 
 
 @Injectable({
