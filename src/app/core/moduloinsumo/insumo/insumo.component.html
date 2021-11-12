@@ -11,13 +11,25 @@
                         <input matInput placeholder="Ex. San Francisco" autocomplete="off" [formControlName]="formControlNames.insumo">
                     </mat-form-field>
                 </td>
+                <td>
+                    <mat-form-field >
+                        <mat-label>Categoria</mat-label>
+                        
+                        <mat-select [formControlName]="formControlNames.categoria">
+                            <mat-option value="FERRETERIA">FERRETERIA</mat-option>
+                            <mat-option value="MADERERA">MADERERA</mat-option>
+                            <mat-option value="CERRAJERIA">CERRAJERIA</mat-option>
+                            <mat-option value="CANTERA">BOLSA</mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </td>
             </tr>
 
             <tr>
                 <td>
                     <mat-form-field >
                         <mat-label>Precio</mat-label>
-                        <input matInput placeholder="Ex. San Francisco" autocomplete="off" [formControlName]="formControlNames.precio">
+                        <input matInput type="number" placeholder="Ex. San Francisco" autocomplete="off" [formControlName]="formControlNames.precio">
                     </mat-form-field>
                 </td>
                 <td>
@@ -25,7 +37,22 @@
                         <mat-label>U. Medida</mat-label>
                         <mat-select [formControlName]="formControlNames.umedida">
                             <mat-option value="UND">UND</mat-option>
-                            <mat-option value="PKT">PAQUETE</mat-option>
+                            <mat-option value="KG">KILOGRAMO</mat-option>
+                            <mat-option value="GR">GRAMO</mat-option>
+                            <mat-option value="BOL">BOLSA</mat-option>
+                            <mat-option value="M">METRO</mat-option>
+                            <mat-option value="M2">METRO CUADRADO</mat-option>
+                            <mat-option value="M3">METRO CUBICO</mat-option>
+                            <mat-option value="GLB">GLOBAL</mat-option>
+                            <mat-option value="MES">MES</mat-option>
+                            <mat-option value="DIA">DIA</mat-option>
+                            <mat-option value="GAL">GALON</mat-option>
+                            <mat-option value="PZA">PIEZA</mat-option>
+                            <mat-option value="PLN">PLANCHA</mat-option>
+                            <mat-option value="P2">PIE CUADRADO</mat-option>
+                            <mat-option value="PLG">PLIEGO</mat-option>
+                            <mat-option value="RLL">ROLLO</mat-option>
+                            <mat-option value="MLL">MILLAR</mat-option>
                           </mat-select>
                         
                     </mat-form-field>
@@ -38,7 +65,7 @@
   
 </section>
 
-  
+    
   <button mat-raised-button color="primary" (click)="enviarFormulario()">boton</button>
   
   <mat-progress-spinner *ngIf="loading$ | async; else dataLoaded" [mode]="'indeterminate'"></mat-progress-spinner>
@@ -49,3 +76,19 @@
     </section>
   </ng-template>
 
+  <pre>
+    {{formGroupValues | json}}
+
+</pre>
+<app-upxls (elementosExportados)="elementosExcel =$event" ></app-upxls>
+<button mat-raised-button color="primary" (click)="muestralista()">boton en el padre</button>
+
+<table>
+    <tbody>
+        <tr *ngFor="let row of data">
+                <td *ngFor="let cell of row">
+                        {{cell}}
+                </td>
+        </tr>
+    </tbody>
+</table>

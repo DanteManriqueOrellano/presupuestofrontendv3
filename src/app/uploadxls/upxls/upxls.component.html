@@ -1,0 +1,20 @@
+<input type="file" (change)="onFileChange($event)" multiple="false" />
+
+<table>
+    <tbody>
+        <tr *ngFor="let row of data">
+                <td *ngFor="let cell of row">
+                        {{cell}}
+                </td>
+        </tr>
+    </tbody>
+</table>
+
+<mat-progress-bar value="40"></mat-progress-bar>
+<mat-progress-bar mode="determinate" value=60></mat-progress-bar>
+
+
+<mat-progress-bar mode="query"></mat-progress-bar>
+<mat-progress-bar color="accent" mode="determinate" value="40"></mat-progress-bar>
+
+<button mat-raised-button color="primary" (click)="enviarDatosExcel()">boton</button>

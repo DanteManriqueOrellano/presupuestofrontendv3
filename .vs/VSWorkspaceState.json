@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\core",
+    "\\src\\app\\core\\moduloinsumo",
+    "\\src\\app\\core\\moduloinsumo\\insumo",
+    "\\src\\app\\core\\navegacion",
+    "\\src\\app\\core\\shareServices"
+  ],
+  "SelectedNode": "\\src\\app\\core\\moduloinsumo\\insumo\\insumo.service.ts",
+  "PreviewInSolutionExplorer": false
+}

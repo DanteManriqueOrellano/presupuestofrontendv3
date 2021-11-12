@@ -12,7 +12,7 @@ export class InsumoResolverService implements Resolve<IInsumo[]> {
 
   constructor(private insumo: InsumoService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): IInsumo[] | Observable<IInsumo[]> | Promise<IInsumo[]> {
-    return this.insumo.getProducts()
+    return this.insumo.getInsumos()
   }
 
   

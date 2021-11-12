@@ -14,9 +14,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NetworkinterceptorService } from '../shareServices/networkinterceptor.service';
 
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { UploadxlsModule } from 'src/app/uploadxls/uploadxls.module';
+
 @NgModule({
   declarations: [
-    InsumoComponent
+    InsumoComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -32,7 +39,12 @@ import { NetworkinterceptorService } from '../shareServices/networkinterceptor.s
     MatProgressSpinnerModule,
     GraphQLModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    UploadxlsModule
+
   ],
   exports:[InsumoComponent],
   providers:[
